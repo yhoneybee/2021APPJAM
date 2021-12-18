@@ -74,7 +74,7 @@ public class Massage : Singletone<Massage>
 
     private IEnumerator EBubbleText()
     {
-        var wait = new WaitForSeconds(3);
+        var wait = new WaitForSeconds(3 * Global.timeScale);
         target = 0;
         yield return wait;
         string strChange = txts[Random.Range(0, txts.Count)];

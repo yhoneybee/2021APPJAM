@@ -1,0 +1,12 @@
+Font: Sandoll Samliphopangche TTF Ba  Style: Regular
+Point Size: 39   SP/PD Ratio: 12.8%
+
+Characters included: 2444/2444
+Missing characters: 0
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+
+Characters excluded from packing:
+----------------------------------------
