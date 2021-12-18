@@ -143,8 +143,10 @@ public class FreeShow : Singletone<FreeShow>
         yield return new WaitForSeconds(1 * Global.timeScale);
         var nodeMap = nodeMaps[Random.Range(0, nodeMaps.Count)];
         Node node0 = null, node1 = null, node2 = null, node3 = null;
-        foreach (var node in nodeMap.nodes)
+        for (int i = 0; i < nodeMaps.Count; )
         {
+            if (Global.timeScale == 0) continue;
+            var node = nodeMap.nodes[i];
             if (node.pos0)
             {
                 node0 = Instantiate(originNode, rtrnNodeParent, false);
@@ -171,6 +173,8 @@ public class FreeShow : Singletone<FreeShow>
             }
 
             yield return new WaitForSeconds(node.nextSpawnDelay * Global.timeScale);
+
+            i++;
         }
         print("Clear");
     }
