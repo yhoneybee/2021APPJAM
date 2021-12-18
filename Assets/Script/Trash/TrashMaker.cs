@@ -76,6 +76,7 @@ public class TrashMaker : MonoBehaviour
                 continue;
             }
             Instantiate(Resources.Load<GameObject>("Trash"), transform.position, Quaternion.identity);
+            SoundManager.Instance.Play("TrashThrow", SoundType.EFFECT);
         }
     }
 }
