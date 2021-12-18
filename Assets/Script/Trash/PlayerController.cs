@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private Transform playerTransform;
     private Rigidbody2D playerRigid;
+    private SpriteRenderer playerSprite;
 
     private float speed;
     private float jumpPower;
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         playerTransform = GetComponent<Transform>();
         playerRigid = GetComponent<Rigidbody2D>();
+        playerSprite = GetComponent<SpriteRenderer>();
 
         speed = 5;
         jumpPower = 10;
@@ -35,10 +38,12 @@ public class PlayerController : MonoBehaviour
         if (h < 0)
         {
             RayFunction(Vector2.left);
+            playerSprite.sprite = Resources.Load<Sprite>("Sprite/PlayerLeft");
         }
         else if (h > 0)
         {
             RayFunction(Vector2.right);
+            playerSprite.sprite = Resources.Load<Sprite>("Sprite/PlayerRight");
         }
         playerTransform.localPosition += (Vector3.right * h * speed * Global.timeScale * Time.deltaTime);
     }
