@@ -43,6 +43,7 @@ public class PickingTrashManagerSea : Singletone<PickingTrashManagerSea>
         }
         if(isEnding)
         {
+            Global.SceneMove("Map", true);
             endingPanel.SetActive(true);
         }
     }
