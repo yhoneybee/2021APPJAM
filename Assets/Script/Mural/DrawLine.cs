@@ -10,6 +10,15 @@ public class DrawLine : MonoBehaviour
     List<Vector2> points = new List<Vector2>();
     public List<GameObject> lines = new List<GameObject>();
 
+    void Start()
+    {
+        for (int i = 0; i < lines.Count; i++)
+        {
+            Destroy(lines[i]);
+        }
+        lines.Clear();
+    }
+
     // Update is called once per frame
     void Update()
     {
