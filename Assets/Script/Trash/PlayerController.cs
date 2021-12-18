@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody2D playerRigid;
     private SpriteRenderer playerSprite;
+    private Animator animator;
 
     private float speed;
     private float jumpPower;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
         playerTransform = GetComponent<Transform>();
         playerRigid = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         speed = 5;
         jumpPower = 10;
@@ -38,12 +40,21 @@ public class PlayerController : MonoBehaviour
         if (h < 0)
         {
             RayFunction(Vector2.left);
+            animator.SetBool("Right", false);
             playerSprite.sprite = Resources.Load<Sprite>("Sprite/PlayerLeft");
+            animator.SetBool("Left", true);
         }
         else if (h > 0)
         {
             RayFunction(Vector2.right);
+            animator.SetBool("Left", false);
             playerSprite.sprite = Resources.Load<Sprite>("Sprite/PlayerRight");
+            animator.SetBool("Right", true);
+        }
+        else
+        {
+            animator.SetBool("Left", false);
+            animator.SetBool("Right",false);
         }
         playerTransform.localPosition += (Vector3.right * h * speed * Global.timeScale * Time.deltaTime);
     }
