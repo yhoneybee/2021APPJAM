@@ -63,6 +63,10 @@ public class Massage : Singletone<Massage>
             massageCount--;
             StartCoroutine(EBubbleText());
         }
+        if (massageCount == 0)
+        {
+            Global.SceneMove("Map");
+        }
     }
 
     public bool GetKeys(params KeyCode[] keys)

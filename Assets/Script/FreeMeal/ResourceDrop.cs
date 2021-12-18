@@ -8,9 +8,15 @@ public class ResourceDrop : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        FreeMeal.Instance.resources.Add(Resource.resource.resourceType);
+        Resource.resource.rtrn.SetParent(gameObject.transform);
+        FreeMeal.Instance.resources.Add(Resource.resource);
         if (FreeMeal.Instance.CheckResource())
         {
+            foreach (var item in FreeMeal.Instance.resources)
+            {
+                item.rtrn.SetParent(null);
+                Destroy(item.gameObject);
+            }
             FreeMeal.Instance.resources.Clear();
             FreeMeal.Instance.LeftCount--;
         }

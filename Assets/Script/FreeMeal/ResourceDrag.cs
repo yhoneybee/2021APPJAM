@@ -28,7 +28,7 @@ public class ResourceDrag : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Destroy(Resource.resource.gameObject);
+        //Destroy(Resource.resource.gameObject);
     }
 
     public void OnPointerDown(PointerEventData eventData)

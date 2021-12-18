@@ -21,7 +21,7 @@ public class FreeMeal : Singletone<FreeMeal>
         }
     }
     private int leftCount;
-    public List<eRESOURCE_TYPE> resources;
+    public List<Resource> resources;
     private List<eRESOURCE_TYPE> resourcesCompletion;
 
     private void Start()
@@ -29,8 +29,8 @@ public class FreeMeal : Singletone<FreeMeal>
         Global.camera = Camera.main;
         Global.Canvas = canvas;
 
-        LeftCount = 100;
-        resources = new List<eRESOURCE_TYPE>();
+        LeftCount = 20;
+        resources = new List<Resource>();
         resourcesCompletion = new List<eRESOURCE_TYPE>()
         {
             eRESOURCE_TYPE.Bread,
@@ -51,7 +51,7 @@ public class FreeMeal : Singletone<FreeMeal>
         bool result = false;
         for (int i = 0; i < resourcesCompletion.Count; i++)
         {
-            result = resources[i] == resourcesCompletion[i];
+            result = resources[i].resourceType == resourcesCompletion[i];
             if (!result) break;
         }
         return result;

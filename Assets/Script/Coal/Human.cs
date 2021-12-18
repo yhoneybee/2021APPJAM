@@ -19,7 +19,7 @@ public class Human : MonoBehaviour
         set
         {
             coalPos = value;
-            //img.sprite = sprites[coalPos];
+            img.sprite = sprites[coalPos];
             if (coalObj)
             {
                 coalObj.rtrn.anchoredPosition = Vector3.zero;

@@ -10,6 +10,7 @@ public struct WinSetting
     public Image imgFade;
     public Image imgBg;
     public Button btnClose;
+    public Button btnMap;
     public Toggle[] arrTogSound;
     public Slider[] arrSliderSound;
 }
@@ -19,6 +20,7 @@ public class Setting : MonoBehaviour
     public Image imgFade;
     public Image imgBg;
     public Button btnClose;
+    public Button btnMap;
     public Toggle[] arrTogSound;
     public Slider[] arrSliderSound;
 
@@ -28,14 +30,15 @@ public class Setting : MonoBehaviour
         Global.winSetting.imgFade = imgFade;
         Global.winSetting.imgBg = imgBg;
         Global.winSetting.btnClose = btnClose;
+        Global.winSetting.btnMap = btnMap;
         Global.winSetting.arrTogSound = arrTogSound;
         Global.winSetting.arrSliderSound = arrSliderSound;
         gameObject.SetActive(false);
-        Global.winSetting.btnClose.onClick.AddListener(() => 
-        { 
+        Global.winSetting.btnClose.onClick.AddListener(() =>
+        {
             StartCoroutine(Global.EFill(Global.winSetting.imgBg, 0));
         });
-        Global.winSetting.arrTogSound[0].onValueChanged.AddListener((b) => 
+        Global.winSetting.arrTogSound[0].onValueChanged.AddListener((b) =>
         {
             Global.winSetting.arrTogSound[0].transform.GetChild(0).GetChild(b ? 1 : 0).gameObject.SetActive(true);
             Global.winSetting.arrTogSound[0].transform.GetChild(0).GetChild(b ? 0 : 1).gameObject.SetActive(false);
@@ -45,6 +48,12 @@ public class Setting : MonoBehaviour
         {
             Global.winSetting.arrTogSound[1].transform.GetChild(0).GetChild(b ? 1 : 0).gameObject.SetActive(true);
             Global.winSetting.arrTogSound[1].transform.GetChild(0).GetChild(b ? 0 : 1).gameObject.SetActive(false);
+        });
+
+        Global.winSetting.btnMap.onClick.AddListener(() => 
+        {
+            SoundManager.Instance.audioSources[((int)SoundType.BGM)].UnPause();
+            Global.SceneMove("Map");
         });
     }
 

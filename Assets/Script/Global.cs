@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public static class Global
@@ -30,8 +31,15 @@ public static class Global
     }
     public static float timeScale = 1;
     public static WinSetting winSetting;
+    public static Fade fade;
 
     private static Canvas canvas;
+
+    public static void SceneMove(string name)
+    {
+        fade.anim.Play("Appear");
+        fade.action = () => { SceneManager.LoadScene(name); };
+    }
 
     public static IEnumerator EFill(Image img, float fill)
     {

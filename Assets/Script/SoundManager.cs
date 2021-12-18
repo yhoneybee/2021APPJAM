@@ -77,8 +77,14 @@ public class SoundManager : Singletone<SoundManager>
     {
         TotalVolume = 0.5f;
 
+        Global.winSetting.arrSliderSound[0].value = BgmVolume;
+        Global.winSetting.arrSliderSound[1].value = SfxVolume;
+
         Global.winSetting.arrSliderSound[0].onValueChanged.AddListener((f) => { BgmVolume = f;  });
         Global.winSetting.arrSliderSound[1].onValueChanged.AddListener((f) => { SfxVolume = f;  });
+
+        Global.winSetting.arrTogSound[0].isOn = audioSources[0].mute;
+        Global.winSetting.arrTogSound[1].isOn = audioSources[1].mute;
 
         Global.winSetting.arrTogSound[0].onValueChanged.AddListener((b) => { audioSources[0].mute = b; });
         Global.winSetting.arrTogSound[1].onValueChanged.AddListener((b) => { audioSources[1].mute = audioSources[2].mute = b; });

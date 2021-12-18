@@ -21,7 +21,6 @@ public class FreeShow : Singletone<FreeShow>
     [SerializeField] private List<Animator> animKeys;
     [SerializeField] private List<GameObject> goNodeSpawns;
     [SerializeField] private List<GameObject> goNodeChecks;
-    [SerializeField] private List<List<Node>> nodeLines;
     [SerializeField] private List<NodeMap> nodeMaps;
     [SerializeField] private Node originNode;
     [SerializeField] private TextMeshProUGUI txtScore;
@@ -31,6 +30,7 @@ public class FreeShow : Singletone<FreeShow>
 
     private Dictionary<int, KeyCode> keys;
     private bool[] isTargetedNode;
+    private bool isGameStarted;
 
     void Start()
     {
@@ -143,7 +143,7 @@ public class FreeShow : Singletone<FreeShow>
         yield return new WaitForSeconds(1 * Global.timeScale);
         var nodeMap = nodeMaps[Random.Range(0, nodeMaps.Count)];
         Node node0 = null, node1 = null, node2 = null, node3 = null;
-        for (int i = 0; i < nodeMaps.Count; )
+        for (int i = 0; i < nodeMap.nodes.Count; )
         {
             if (Global.timeScale == 0) continue;
             var node = nodeMap.nodes[i];
@@ -173,9 +173,11 @@ public class FreeShow : Singletone<FreeShow>
             }
 
             yield return new WaitForSeconds(node.nextSpawnDelay * Global.timeScale);
-
+            isGameStarted = true;
             i++;
         }
-        print("Clear");
+
+        yield return new WaitForSeconds(3);
+        Global.SceneMove("Map");
     }
 }
