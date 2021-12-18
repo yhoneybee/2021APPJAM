@@ -43,7 +43,6 @@ public class PickingTrashManagerSea : Singletone<PickingTrashManagerSea>
         }
         if(isEnding)
         {
-            Global.SceneMove("Map", true);
             endingPanel.SetActive(true);
         }
     }
@@ -74,5 +73,10 @@ public class PickingTrashManagerSea : Singletone<PickingTrashManagerSea>
                     break;
             }
         }
+    }
+
+    public void Clear()
+    {
+        Global.SceneMove("Map", true);
     }
 }

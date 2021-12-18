@@ -75,4 +75,9 @@ public class PickingTrashManager : Singletone<PickingTrashManager>
             }
         }
     }
+
+    public void Clear()
+    {
+        Global.SceneMove("Map", true);
+    }
 }

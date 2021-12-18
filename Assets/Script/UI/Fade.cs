@@ -13,6 +13,7 @@ public class Fade : MonoBehaviour
         action = () => { };
         Global.fade = this;
         anim.Play("Disappear");
+        SoundManager.Instance.audioSources[0].Stop();
     }
 
     public void AppearSuccess()
