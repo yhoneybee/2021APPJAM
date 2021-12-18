@@ -35,6 +35,17 @@ public class Setting : MonoBehaviour
         { 
             StartCoroutine(Global.EFill(Global.winSetting.imgBg, 0));
         });
+        Global.winSetting.arrTogSound[0].onValueChanged.AddListener((b) => 
+        {
+            Global.winSetting.arrTogSound[0].transform.GetChild(0).GetChild(b ? 1 : 0).gameObject.SetActive(true);
+            Global.winSetting.arrTogSound[0].transform.GetChild(0).GetChild(b ? 0 : 1).gameObject.SetActive(false);
+        });
+
+        Global.winSetting.arrTogSound[1].onValueChanged.AddListener((b) =>
+        {
+            Global.winSetting.arrTogSound[1].transform.GetChild(0).GetChild(b ? 1 : 0).gameObject.SetActive(true);
+            Global.winSetting.arrTogSound[1].transform.GetChild(0).GetChild(b ? 0 : 1).gameObject.SetActive(false);
+        });
     }
 
     private void OnEnable()

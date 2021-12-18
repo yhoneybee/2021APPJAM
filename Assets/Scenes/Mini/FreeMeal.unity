@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1387770677157316894, guid: bea6bde4eb57b09478449dcbc0d55349, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1387770678376025922, guid: bea6bde4eb57b09478449dcbc0d55349, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1440,7 +1444,7 @@ GameObject:
   - component: {fileID: 1439682342}
   - component: {fileID: 1439682341}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
