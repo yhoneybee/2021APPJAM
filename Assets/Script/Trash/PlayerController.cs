@@ -28,33 +28,46 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
     }
-
     void Move()
     {
         float h = Input.GetAxisRaw("Horizontal");
 
-        //playerRigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-
-        //if(playerRigid.velocity.x > maxSpeed)
-        //{
-        //    playerRigid.velocity = new Vector2(maxSpeed, playerRigid.velocity.y);
-        //}
-        //else if(playerRigid.velocity.x < maxSpeed * (-1))
-        //{
-        //    playerRigid.velocity = new Vector2(maxSpeed * (-1), playerRigid.velocity.y);
-        //}
-
-        playerTransform.Translate(Vector3.right * h * speed * Time.deltaTime);
+        if (h < 0)
+        {
+            RayFunction(Vector2.left);
+        }
+        else if (h > 0)
+        {
+            RayFunction(Vector2.right);
+        }
+        playerTransform.localPosition += (Vector3.right * h * speed * Global.timeScale * Time.deltaTime);
     }
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             if(!isJumping)
             {
                 playerRigid.AddForce(Vector3.up * jumpPower, ForceMode2D.Impulse);
                 isJumping = true;
+            }
+        }
+    }
+
+    void RayFunction(Vector2 direction)
+    {
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 2), direction * 2.3f, Color.red);
+        RaycastHit2D rayHit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 2), direction, 2.3f, LayerMask.GetMask("Trash"));
+
+        if (rayHit.collider != null)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                PickingTrashManager.Instance.score += 1;
+                Debug.Log(PickingTrashManager.Instance.score);
+                Debug.Log(rayHit.collider.name);
+                Destroy(rayHit.transform.gameObject);
             }
         }
     }
