@@ -15,7 +15,7 @@ public class Massage : Singletone<Massage>
     void Start()
     {
         Global.camera = Camera.main;
-        Global.canvas = canvas;
+        Global.Canvas = canvas;
 
         anim.Play("Appear");
         StartCoroutine(EBubbleText());

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 89275411442195172}
   - component: {fileID: 89275411442195099}
   m_Layer: 5
-  m_Name: BGMSlider
+  m_Name: SfxSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 89275412060918182}
   - component: {fileID: 89275412060918181}
   m_Layer: 5
-  m_Name: BGMMute
+  m_Name: SfxMute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &89275412214296572
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 89275412417152811}
   - component: {fileID: 89275412417152810}
   m_Layer: 5
-  m_Name: SFXSlider
+  m_Name: BgmSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 89275413009892234}
   - component: {fileID: 89275413009892233}
   m_Layer: 5
-  m_Name: SFXMute
+  m_Name: BgmMute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &89275413114738235
 GameObject:
   m_ObjectHideFlags: 0

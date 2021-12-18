@@ -27,13 +27,15 @@ public class FreeShow : Singletone<FreeShow>
     [SerializeField] private TextMeshProUGUI txtScore;
     [SerializeField] private float score;
     [SerializeField] private TextMeshProUGUI originTxtResult;
+    [SerializeField] private RectTransform rtrnNodeParent;
 
     private Dictionary<int, KeyCode> keys;
+    private bool[] isTargetedNode;
 
     void Start()
     {
         Global.camera = Camera.main;
-        Global.canvas = canvas;
+        Global.Canvas = canvas;
         Score = 0;
 
         keys = new Dictionary<int, KeyCode>()
@@ -43,6 +45,7 @@ public class FreeShow : Singletone<FreeShow>
             { 2,KeyCode.L },
             { 3,KeyCode.Semicolon },
         };
+        isTargetedNode = new bool[keys.Count];
 
         animKeysParent.Play("AppearKeys");
         StartCoroutine(ESpawn());
@@ -62,9 +65,13 @@ public class FreeShow : Singletone<FreeShow>
             {
                 CheckNodeScore(item.Key);
             }
+            if (Input.GetKey(item.Value) && !isTargetedNode[item.Key])
+            {
+                CheckNodeScore(item.Key, true);
+            }
             if (Input.GetKeyUp(item.Value))
             {
-
+                isTargetedNode[item.Key] = false;
             }
         }
     }
@@ -74,11 +81,12 @@ public class FreeShow : Singletone<FreeShow>
     /// </summary>
     /// <param name="index"></param>
     /// <returns>-1: out Range, 0: miss, 1: good, 2: great, 3: excellent</returns>
-    public void CheckNodeScore(int index)
+    public void CheckNodeScore(int index, bool checkLong = false)
     {
         var pos = goNodeChecks[index].transform.position;
         var hit = Physics2D.Raycast(pos, Vector2.up, 1080, LayerMask.GetMask("Node"));
         if (!hit.transform) return;
+        isTargetedNode[index] = hit.transform.GetComponent<Node>().isLong != checkLong;
         float dis = Vector2.Distance(hit.transform.position, pos);
         int check = dis switch
         {
@@ -88,7 +96,11 @@ public class FreeShow : Singletone<FreeShow>
             float f when 1.5f <= f && f < 3 => 0,
             _ => -1,
         };
-        if (check >= 0)
+        if (checkLong == !isTargetedNode[index])
+        {
+            if (dis > 0.5f) return;
+        }
+        if (check >= 0 && !isTargetedNode[index])
         {
             Destroy(hit.transform.gameObject);
             SpawnTxtResult(check);
@@ -98,7 +110,7 @@ public class FreeShow : Singletone<FreeShow>
     public TextMeshProUGUI SpawnTxtResult(int check)
     {
         var txt = Instantiate(originTxtResult, new Vector3(-650, -130), Quaternion.identity);
-        txt.GetComponent<RectTransform>().SetParent(Global.canvas.transform, false);
+        txt.GetComponent<RectTransform>().SetParent(Global.Canvas.transform, false);
         switch (check)
         {
             case 0:
@@ -127,15 +139,39 @@ public class FreeShow : Singletone<FreeShow>
     private IEnumerator ESpawn()
     {
         if (nodeMaps.Count == 0) yield break;
-        yield return new WaitForSeconds(3 * Global.timeScale);
+        SoundManager.Instance.Play("FreeShow", SoundType.BGM);
+        yield return new WaitForSeconds(1 * Global.timeScale);
         var nodeMap = nodeMaps[Random.Range(0, nodeMaps.Count)];
+        Node node0 = null, node1 = null, node2 = null, node3 = null;
         foreach (var node in nodeMap.nodes)
         {
-            if (node.pos0) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[0].transform.position;
-            if (node.pos1) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[1].transform.position;
-            if (node.pos2) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[2].transform.position;
-            if (node.pos3) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[3].transform.position;
+            if (node.pos0)
+            {
+                node0 = Instantiate(originNode, rtrnNodeParent, false);
+                node0.transform.position = goNodeSpawns[0].transform.position;
+                node0.isLong = node.long0;
+            }
+            if (node.pos1)
+            {
+                node1 = Instantiate(originNode, rtrnNodeParent, false);
+                node1.transform.position = goNodeSpawns[1].transform.position;
+                node1.isLong = node.long1;
+            }
+            if (node.pos2)
+            {
+                node2 = Instantiate(originNode, rtrnNodeParent, false);
+                node2.transform.position = goNodeSpawns[2].transform.position;
+                node2.isLong = node.long2;
+            }
+            if (node.pos3)
+            {
+                node3 = Instantiate(originNode, rtrnNodeParent, false);
+                node3.transform.position = goNodeSpawns[3].transform.position;
+                node3.isLong = node.long3;
+            }
+
             yield return new WaitForSeconds(node.nextSpawnDelay * Global.timeScale);
         }
+        print("Clear");
     }
 }

@@ -44,6 +44,7 @@ public class Setting : MonoBehaviour
             Global.winSetting.imgBg.fillAmount = 0;
             StartCoroutine(Global.EFill(Global.winSetting.imgBg, 1));
             Global.timeScale = 0;
+            SoundManager.Instance.audioSources[((int)SoundType.BGM)].Pause();
         }
     }
 }

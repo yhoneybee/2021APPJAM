@@ -6,6 +6,7 @@ using UnityEngine;
 public struct NodeInfo
 {
     public bool pos0, pos1, pos2, pos3;
+    public bool long0, long1, long2, long3;
     [Range(0.0f, 2.0f)]
     public float nextSpawnDelay;
 }

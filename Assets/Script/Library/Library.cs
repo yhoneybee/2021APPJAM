@@ -14,12 +14,12 @@ public class Library : Singletone<Library>
     private void Start()
     {
         Global.camera = Camera.main;
-        Global.canvas = canvas;
+        Global.Canvas = canvas;
         books = new List<Book>();
 
         for (int i = 0; i < bookDrops.Count; i++)
         {
-            var book = Instantiate(originBook, Global.canvas.transform, false);
+            var book = Instantiate(originBook, Global.Canvas.transform, false);
             book.rtrn.anchoredPosition = bookDrops[i].GetComponent<RectTransform>().anchoredPosition;
             int h = Random.Range(1, 10);
             book.code = h * 100;

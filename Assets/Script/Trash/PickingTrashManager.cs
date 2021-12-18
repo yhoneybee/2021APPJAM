@@ -18,7 +18,7 @@ public class PickingTrashManager : Singletone<PickingTrashManager>
     void Start()
     {
         Global.camera = Camera.main;
-        Global.canvas = canvas;
+        Global.Canvas = canvas;
 
         score = 0;
         createTime = 3.0f;

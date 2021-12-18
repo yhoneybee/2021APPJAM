@@ -6,10 +6,32 @@ using UnityEngine.UI;
 public static class Global
 {
     public static Camera camera;
-    public static Canvas canvas;
+    public static Canvas Canvas
+    {
+        get => canvas;
+        set
+        {
+            canvas = value;
+            foreach (var button in canvas.GetComponentsInChildren<Button>())
+            {
+                button.onClick.AddListener(() =>
+                {
+                    SoundManager.Instance.Play("ButtonClick", SoundType.BUTTON);
+                });
+            }
+            foreach (var toggle in canvas.GetComponentsInChildren<Toggle>())
+            {
+                toggle.onValueChanged.AddListener((f) =>
+                {
+                    SoundManager.Instance.Play("ButtonClick", SoundType.BUTTON);
+                });
+            }
+        }
+    }
     public static float timeScale = 1;
-
     public static WinSetting winSetting;
+
+    private static Canvas canvas;
 
     public static IEnumerator EFill(Image img, float fill)
     {
@@ -23,6 +45,7 @@ public static class Global
             }
             winSetting.go.SetActive(false);
             timeScale = 1;
+            SoundManager.Instance.audioSources[((int)SoundType.BGM)].UnPause();
         }
         else
         {
