@@ -13,18 +13,53 @@ MonoBehaviour:
   m_Name: NodeMap
   m_EditorClassIdentifier: 
   nodes:
-  - pos0: 0
+  - pos0: 1
     pos1: 0
     pos2: 0
     pos3: 0
-    nextSpawnDelay: 2
+    nextSpawnDelay: 0.69
+  - pos0: 0
+    pos1: 1
+    pos2: 0
+    pos3: 0
+    nextSpawnDelay: 0.52
+  - pos0: 0
+    pos1: 0
+    pos2: 1
+    pos3: 0
+    nextSpawnDelay: 1.46
+  - pos0: 0
+    pos1: 0
+    pos2: 0
+    pos3: 1
+    nextSpawnDelay: 0.86
   - pos0: 0
     pos1: 1
     pos2: 0
     pos3: 1
-    nextSpawnDelay: 0.52
+    nextSpawnDelay: 0.5
+  - pos0: 1
+    pos1: 1
+    pos2: 1
+    pos3: 1
+    nextSpawnDelay: 0.27
+  - pos0: 0
+    pos1: 0
+    pos2: 1
+    pos3: 1
+    nextSpawnDelay: 1.2
+  - pos0: 0
+    pos1: 1
+    pos2: 0
+    pos3: 1
+    nextSpawnDelay: 1.62
   - pos0: 1
     pos1: 0
     pos2: 1
+    pos3: 1
+    nextSpawnDelay: 0.69
+  - pos0: 1
+    pos1: 1
+    pos2: 0
     pos3: 0
-    nextSpawnDelay: 1.2
+    nextSpawnDelay: 1.06

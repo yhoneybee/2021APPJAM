@@ -1229,6 +1229,7 @@ MonoBehaviour:
   originNode: {fileID: 8540505362529706655, guid: 5d9f66b6914eaf949b5b9d602f251502, type: 3}
   txtScore: {fileID: 992026808}
   score: 0
+  originTxtResult: {fileID: 4083639309011143175, guid: 481369e3efde1d44783cf1fa3df731f7, type: 3}
 --- !u!1 &699877613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,7 +2655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1387770677157316893, guid: bea6bde4eb57b09478449dcbc0d55349, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1387770677157316893, guid: bea6bde4eb57b09478449dcbc0d55349, type: 3}
       propertyPath: m_AnchorMax.x
