@@ -37,7 +37,7 @@ public class DrawLine : MonoBehaviour
             points.Clear();
         }
         // 전체 지우기
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetKeyDown(KeyCode.Delete))
         {
             for (int i = 0; i < lines.Count; i++)
             {
@@ -45,8 +45,8 @@ public class DrawLine : MonoBehaviour
             }
                 lines.Clear();
         }
-
-        if (Input.GetMouseButtonDown(2))
+        // Ctrl + Z
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             Destroy(lines[lines.Count - 1]);
             lines.RemoveAt(lines.Count - 1);
