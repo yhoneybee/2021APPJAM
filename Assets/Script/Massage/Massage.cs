@@ -65,7 +65,7 @@ public class Massage : Singletone<Massage>
         }
         if (massageCount == 0)
         {
-            Global.SceneMove("Map");
+            Global.SceneMove("Map", true);
         }
     }
 
