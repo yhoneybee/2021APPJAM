@@ -6,6 +6,7 @@ public class Node : MonoBehaviour
 {
     [SerializeField] private RectTransform rtrn;
     [SerializeField] private float speed;
+    public bool isLong;
     void Update()
     {
         transform.Translate(Vector3.down * Time.deltaTime * speed * Global.timeScale);
