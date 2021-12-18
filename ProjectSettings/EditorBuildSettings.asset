@@ -8,4 +8,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: f3e480f9ba37d8241896629161d07a50
+  - enabled: 1
+    path: Assets/Scenes/Mini/CoalBriquettes.unity
+    guid: 5c74ca32e359d9d43b4b830d688aba70
+  - enabled: 1
+    path: Assets/Scenes/Mini/FreeMeal.unity
+    guid: 5ea4061ee744ad748ba44e2de2d23c61
+  - enabled: 1
+    path: Assets/Scenes/Mini/FreeShow.unity
+    guid: c655ea7032ff05c42a85fbdc56bd32df
+  - enabled: 1
+    path: Assets/Scenes/Mini/Library.unity
+    guid: bcde4e3ebabfffd47bf13f4c9ed2a66e
+  - enabled: 1
+    path: Assets/Scenes/Mini/Massage.unity
+    guid: 3928555c741efc142a6ec52c0e54cfe1
+  - enabled: 1
+    path: Assets/Scenes/Mini/MountainTrash.unity
+    guid: 5fbf763750d793148bc8141597d6a3b6
+  - enabled: 1
+    path: Assets/Scenes/Mini/Mural.unity
+    guid: 541ec8673722f164ead620c69bbbf586
+  - enabled: 1
+    path: Assets/Scenes/Mini/SeaTrash.unity
+    guid: 94567216400391841b35a21f72b9d254
   m_configObjects: {}

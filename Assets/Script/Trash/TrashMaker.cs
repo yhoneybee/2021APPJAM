@@ -71,6 +71,10 @@ public class TrashMaker : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(fRandomSpawn);
+            if (Global.timeScale == 0)
+            {
+                continue;
+            }
             Instantiate(Resources.Load<GameObject>("Trash"), transform.position, Quaternion.identity);
         }
     }
