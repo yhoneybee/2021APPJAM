@@ -37,12 +37,17 @@ public static class Global
 
     public static int clearCount;
 
+    public static bool SceneCheck(string name) => SceneManager.GetActiveScene().name == name;
+
     public static void SceneMove(string name, bool isClear = false)
     {
         fade.anim.Play("Appear");
         if (isClear) clearCount++;
         if (clearCount == 7) SceneMove("Ending", false);
-        fade.action = () => { SceneManager.LoadScene(name); };
+        fade.action = () =>
+        { 
+            SceneManager.LoadScene(name);
+        };
     }
 
     public static IEnumerator EFill(Image img, float fill)
