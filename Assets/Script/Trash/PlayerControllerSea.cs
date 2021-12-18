@@ -81,8 +81,7 @@ public class PlayerControllerSea : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 PickingTrashManagerSea.Instance.score += 1;
-                Debug.Log(PickingTrashManagerSea.Instance.score);
-                Debug.Log(rayHit.collider.name);
+                SoundManager.Instance.Play("TrashPickup", SoundType.EFFECT);
                 Destroy(rayHit.transform.gameObject);
             }
         }

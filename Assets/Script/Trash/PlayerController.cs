@@ -81,8 +81,7 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 PickingTrashManager.Instance.score += 1;
-                Debug.Log(PickingTrashManager.Instance.score);
-                Debug.Log(rayHit.collider.name);
+                SoundManager.Instance.Play("TrashPickup", SoundType.EFFECT);
                 Destroy(rayHit.transform.gameObject);
             }
         }
