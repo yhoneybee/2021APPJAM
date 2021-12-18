@@ -127,7 +127,7 @@ public class FreeShow : Singletone<FreeShow>
     private IEnumerator ESpawn()
     {
         if (nodeMaps.Count == 0) yield break;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3 * Global.timeScale);
         var nodeMap = nodeMaps[Random.Range(0, nodeMaps.Count)];
         foreach (var node in nodeMap.nodes)
         {
@@ -135,7 +135,7 @@ public class FreeShow : Singletone<FreeShow>
             if (node.pos1) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[1].transform.position;
             if (node.pos2) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[2].transform.position;
             if (node.pos3) Instantiate(originNode, Global.canvas.transform, false).transform.position = goNodeSpawns[3].transform.position;
-            yield return new WaitForSeconds(node.nextSpawnDelay);
+            yield return new WaitForSeconds(node.nextSpawnDelay * Global.timeScale);
         }
     }
 }
