@@ -44,6 +44,6 @@ public class Library : Singletone<Library>
             if (!result) break;
         }
 
-        if (result) Global.SceneMove("Map");
+        if (result) Global.SceneMove("Map", true);
     }
 }

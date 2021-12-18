@@ -35,9 +35,13 @@ public static class Global
 
     private static Canvas canvas;
 
-    public static void SceneMove(string name)
+    public static int clearCount;
+
+    public static void SceneMove(string name, bool isClear = false)
     {
         fade.anim.Play("Appear");
+        if (isClear) clearCount++;
+        if (clearCount == 7) SceneMove("Ending", false);
         fade.action = () => { SceneManager.LoadScene(name); };
     }
 

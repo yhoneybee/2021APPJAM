@@ -178,6 +178,6 @@ public class FreeShow : Singletone<FreeShow>
         }
 
         yield return new WaitForSeconds(3);
-        Global.SceneMove("Map");
+        Global.SceneMove("Map", true);
     }
 }
