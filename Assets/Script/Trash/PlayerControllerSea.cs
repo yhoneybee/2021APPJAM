@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerSea : MonoBehaviour
 {
     private Transform playerTransform;
     private Rigidbody2D playerRigid;
@@ -80,8 +80,8 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                PickingTrashManager.Instance.score += 1;
-                Debug.Log(PickingTrashManager.Instance.score);
+                PickingTrashManagerSea.Instance.score += 1;
+                Debug.Log(PickingTrashManagerSea.Instance.score);
                 Debug.Log(rayHit.collider.name);
                 Destroy(rayHit.transform.gameObject);
             }

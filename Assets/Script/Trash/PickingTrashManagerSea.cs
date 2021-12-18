@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PickingTrashManager : Singletone<PickingTrashManager>
+public class PickingTrashManagerSea : Singletone<PickingTrashManagerSea>
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private TextMeshProUGUI scoreTMP;
@@ -24,7 +24,7 @@ public class PickingTrashManager : Singletone<PickingTrashManager>
 
         isEnding = false;
         endingPanel.SetActive(false);
-        SoundManager.Instance.Play("SanTrash", SoundType.BGM);
+        SoundManager.Instance.Play("SeaTrash", SoundType.BGM);
         score = 0;
         createTime = 3.0f;
         isPlay = true;
@@ -41,7 +41,6 @@ public class PickingTrashManager : Singletone<PickingTrashManager>
         {
             isEnding = true;
         }
-
         if(isEnding)
         {
             endingPanel.SetActive(true);
