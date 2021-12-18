@@ -7,6 +7,7 @@ public static class Global
 {
     public static Camera camera;
     public static Canvas canvas;
+    public static float timeScale = 1;
 
     public static WinSetting winSetting;
 
@@ -21,6 +22,7 @@ public static class Global
                 yield return wait;
             }
             winSetting.go.SetActive(false);
+            timeScale = 1;
         }
         else
         {

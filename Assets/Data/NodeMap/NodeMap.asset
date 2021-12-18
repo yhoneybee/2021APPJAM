@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc48e8b1dc9a86c4bb122f0d9afe14ea, type: 3}
+  m_Name: NodeMap
+  m_EditorClassIdentifier: 
+  nodes:
+  - pos0: 0
+    pos1: 0
+    pos2: 0
+    pos3: 0
+    nextSpawnDelay: 2
+  - pos0: 0
+    pos1: 1
+    pos2: 0
+    pos3: 1
+    nextSpawnDelay: 0.52
+  - pos0: 1
+    pos1: 0
+    pos2: 1
+    pos3: 0
+    nextSpawnDelay: 1.2
