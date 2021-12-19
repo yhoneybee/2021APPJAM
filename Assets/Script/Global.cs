@@ -43,10 +43,16 @@ public static class Global
     {
         fade.anim.Play("Appear");
         if (isClear) clearCount++;
-        if (clearCount == 7) SceneMove("Ending", false);
+
         fade.action = () =>
-        { 
-            SceneManager.LoadScene(name);
+        {
+            if (clearCount == 7)
+            {
+                clearCount = 0;
+                SceneManager.LoadScene("Ending");
+            }
+            else
+                SceneManager.LoadScene(name);
         };
     }
 
