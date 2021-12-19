@@ -9,4 +9,12 @@ public class MapManager : MonoBehaviour
     {
         SoundManager.Instance.Play("Bgm", SoundType.BGM);
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Global.SceneMove("Ending", false);
+        }
+    }
 }

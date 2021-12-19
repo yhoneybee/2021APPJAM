@@ -37,7 +37,7 @@ public class PickingTrashManagerSea : Singletone<PickingTrashManagerSea>
         nRandom = Random.Range(1, 4);
         scoreTMP.text = "score : " + $"{score}";
 
-        if(score >= 100)
+        if(score >= 80)
         {
             isEnding = true;
         }
